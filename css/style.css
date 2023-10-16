@@ -8,7 +8,324 @@
     text-decoration: none;
 }
 
+:root {
+    --primary-color: #DD3C5F;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+
 html,
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: #161616;
+    overflow: hidden;
+}
+
+
+
+
+
+
+/* reusable */
+
+.link {
+    font-size: 0.85rem;
+    line-height: 1.35rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background: transparent;
+    transition: .3s;
+}
+
+
+
+
+
+/* navbar */
+/* navbar */
+
+
+
+.nav__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 14px 0 24px;
+    margin: 30px 6vw;
+    z-index: 1;
+    position: relative;
+
+    /* style */
+
+    background-color: rgba(252, 189, 215, 0.2);
+    border-radius: 500px;
+    transition: .3s;
+
+
+
+    /* navbar logo */
+
+    .logo {
+        width: 120px;
+        height: 60px;
+
+        >svg {
+            height: 100%;
+            width: 100%;
+            fill: #fff;
+            transition: .9s fill;
+        }
+    }
+
+
+
+    /* navbar links */
+
+    .nav__links {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        >.link {
+
+            /* style */
+            color: #F1F1F1;
+
+            padding: 6px 20px;
+            border-radius: 30px;
+        }
+
+        .link:hover {
+            background-color: var(--primary-color);
+            color: #fff !important;
+        }
+
+    }
+
+
+
+    /* navbar button */
+
+    .btn {
+        background-color: #161616;
+        border-radius: 500px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 8px 20px;
+
+        /* style */
+        color: #F1F1F1;
+        font-size: 0.85rem;
+        line-height: 1.35rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+
+        >img {
+            width: 20px;
+        }
+    }
+
+    .btn:hover {
+        color: #fff;
+        background-color: var(--primary-color);
+    }
+
+}
+
+
+/* navbar hover effect */
+
+.nav__bar:hover {
+    background-color: #F1F1F1;
+
+    .logo {
+        >svg {
+            fill: #161616;
+        }
+    }
+
+    .nav__links {
+        >.link {
+            color: #161616;
+        }
+    }
+}
+
+
+
+
+
+
+/* hero section */
+/* hero section */
+
+
+
+.hero__section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .heading {
+        font-size: 3.6rem;
+        line-height: 4.6rem;
+        color: #fff;
+
+        >span {
+            margin: 0 10px;
+            font-weight: 300;
+            position: relative;
+        }
+
+        >span::after {
+            content: "";
+            position: absolute;
+            display: block;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: url(https://cinza.io/wp-content/uploads/2023/01/website-circle.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    .scroll__down {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+
+        .down__animation {
+            padding: 4px;
+            border-radius: 60px;
+            border: 2px solid #EA77A1;
+            width: 26px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+
+            .circle {
+                width: 10px;
+                height: 10px;
+                background-color: #EA77A1;
+                border-radius: 50px;
+                animation: topdown 1.3s infinite;
+            }
+        }
+
+
+        >.scroll__text {
+            color: #EA77A1;
+            transition: .3s;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+
+        >.scroll__text:hover {
+            border-bottom: 2px solid #EA77A1;
+        }
+
+    }
+
+}
+
+
+.floating-left {
+    position: absolute;
+    bottom: 100px;
+    left: -350px;
+    height: 600px;
+    width: 1000px;
+    margin-top: 0;
+    border-radius: 100%;
+    background: #DD3C5F;
+    filter: blur(150px);
+    opacity: 0.35;
+    animation-name: floating-left;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+.floating-right {
+    position: absolute;
+    top: -50px;
+    right: -150px;
+    height: 500px;
+    width: 900px;
+    margin-top: 0;
+    border-radius: 100%;
+    background: #FCBDD7;
+    filter: blur(125px);
+    opacity: 0.35;
+    animation-name: floating-right;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+
+/* animation */
+
+@keyframes topdown {
+    0% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+@keyframes floating-right {
+    0% {
+        transform: translate(0, 0px);
+    }
+
+    33% {
+        transform: translate(300px, 200px);
+    }
+
+    66% {
+        transform: translate(200px, -200px);
+    }
+
+    100% {
+        transform: translate(0, 0px);
+    }
+}
+
+@keyframes floating-left {
+    0% {
+        transform: translate(0, 0px);
+    }
+
+    33% {
+        transform: translate(300px, 200px);
+    }
+
+    66% {
+        transform: translate(200px, -200px);
+    }
+
+    100% {
+        transform: translate(0, 0px);
+    }
 }
